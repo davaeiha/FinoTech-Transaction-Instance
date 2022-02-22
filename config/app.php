@@ -1,5 +1,8 @@
 <?php
 
+use App\FinoTech\Facade\Inquiry;
+use App\FinoTech\Facade\Payment;
+use App\FinoTech\Facade\Report;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -176,7 +179,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        \App\Providers\FinoTechServiceProvider::class,
     ],
 
     /*
@@ -191,7 +194,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'Payment'=> Payment::class,
+        'Inquiry'=> Inquiry::class,
+        'Report'=> Report::class
     ])->toArray(),
 
 ];
